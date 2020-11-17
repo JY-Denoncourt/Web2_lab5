@@ -1,0 +1,14 @@
+<% #Jean-Yves Denoncourt 9977949 2020/11/13 %>
+
+<%= link_to 'logout', destroy_user_session_path, method: :delete %> <br/>
+
+<h1> Liste de vos recettes </h1> <br/>
+
+<% @mesRecettes.order(:titre).each do |recette| %>
+    <h2>
+        Recette id: <%= recette.id %> <br />
+        <i><%= recette.titre %></i>
+        <%= link_to "voir", "/mesRecettes/#{recette.id}" %>
+    </h2>
+    <br/>
+<% end %>

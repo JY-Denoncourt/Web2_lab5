@@ -1,0 +1,16 @@
+<% #Jean-Yves Denoncourt 9977949 2020/11/13 %>
+
+<%= link_to 'logout', destroy_user_session_path, method: :delete %> <br/>
+
+
+<h1> DETAIL D UNE RECETTE </h1> <br/>
+
+<h1> <%= @recette.titre %>  <br/> </h1>
+
+<h2>
+    Ingredient : 
+    <br/>
+    <%  @recette.ingredients.each do |ingredient| %>
+        <h2> ==>  <%= ingredient.nom %> <br/> </h2>
+    <% end %>
+</h2>

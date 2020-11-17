@@ -1,0 +1,17 @@
+<% #Jean-Yves Denoncourt 9977949 2020/11/13 %>
+
+<h1> Bienvenue au site de recettes JYD</h1> <br/>
+
+
+<% if user_signed_in? %>    
+    Bonjour <%= current_user.email %> <br/>
+    <%= link_to 'logout', destroy_user_session_path, method: :delete %> <br/>
+    <%= link_to 'Liste de vos recettes', "/mesRecettes" %>  
+    <% if current_user.is_admin? %>    
+        <br/>
+        <%= link_to 'Section admin', "/admin" %> 
+    <% end %> <br/>
+<% else %>
+    <h2> Veillez vous connecter svp </h2> <br/> 
+    <%= link_to 'login', new_user_session_path %> 
+<% end %> <br/>
