@@ -1,9 +1,10 @@
-#Jean-Yves Denoncourt 9977949   2020/10/29
+#Jean-Yves Denoncourt 9977949   29-novembre 2020
 
 class AdminController < ApplicationController
     before_action :authenticate_user!
     before_action :is_admin
 
+    layout "adminSection/base"
 
     private
     def is_admin

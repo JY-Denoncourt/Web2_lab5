@@ -1,0 +1,10 @@
+<!-- Jean-Yves Denoncourt 9977949 29 novebre 2020 -->
+
+
+<% @recettes.collect.each_with_index do |recette, index| %>  
+    <div class="w3-quarter">
+        <%= image_tag "popsicle.jpg", style: "width:100%" %>
+        <h3><%= link_to recette.titre, "/recettes/#{recette.id}", method: :get %></h3>
+        <p><%= link_to recette.etapes, "/recettes/#{recette.id}", method: :get  %></p> 
+    </div>
+<%end%>

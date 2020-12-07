@@ -1,0 +1,17 @@
+<% #Jean-Yves Denoncourt 9977949 29-novembre-2020 %>
+
+
+<h1> LISTE DE TOUTES LES RECETTES </h1> <br/>
+
+    <h3> Recettes : </h3>
+        
+    <% @recettes.each do |recette| %>
+
+        ==> <%= recette.titre %> 
+        <%= link_to "voir", "/admin/recettes/#{recette.id}" %>
+        <%= link_to "edit", "/admin/editRecette/#{recette.id}" %> <br/>
+    <% end %>
+
+<br/>
+<br/>
+<%= link_to "Ajouter une recette", "/admin/addRecette" %> <br/>

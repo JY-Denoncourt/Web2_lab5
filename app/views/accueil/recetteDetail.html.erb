@@ -1,16 +1,14 @@
-<% #Jean-Yves Denoncourt 9977949 2020/11/13 %>
-
-<%= link_to 'logout', destroy_user_session_path, method: :delete %> <br/>
-
+<% #Jean-Yves Denoncourt 9977949 29-novembre-2020 %>
 
 <h1> DETAIL D UNE RECETTE </h1> <br/>
 
-<h1> <%= @recette.titre %>  <br/> </h1>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
-<h2>
-    Ingredient : 
-    <br/>
-    <%  @recette.ingredients.each do |ingredient| %>
-        <h2> ==>  <%= ingredient.nom %> <br/> </h2>
-    <% end %>
-</h2>
+     <!-- First Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+        <%= render "layouts/recettes/detailRecette" %>
+     </div>
+
+    <%= render "layouts/public/paginationFooter" %>
+</div>

@@ -1,31 +1,33 @@
-#Jean-Yves Denoncourt 9977949 2020/11/13
+#Jean-Yves Denoncourt 9977949 29-novembre-2020
 
 class AccueilController < ApplicationController
+    before_action :authenticate_user!, :except => [:accueil]
+
+    layout "public/base"
+
     def accueil 
+        @recettes = Recette.all
+    end
+
+
+     #--------------------------------------------------------------------------------
+
+     def detailPublic
+        @User = current_user
+        @recettes = Recette.find(params[:id])    
+        render 'accueil/recetteDetail' 
     end
 
     #--------------------------------------------------------------------------------
 
-    def mesRecettes 
+    def mesrecettes 
         #transferer le id de current_user dans le controller
-        @currentUser = current_user
-        @mesRecettes = Recette.where(:user_id => @currentUser.id)     
+        @recettes = current_user.recettes
+        render 'mesRecettes/mesRecettes'
     end
 
     #--------------------------------------------------------------------------------
 
-    def recetteDetail
-        @recette = Recette.find(params[:id])
-
-        @ingredients = @recette.ingredients.collect do |ingredient|
-            ingredient.nom
-        end
-        
-        respond_to do |format|
-            format.html { render 'accueil/recetteDetail' }
-            format.json { render :json => @ingredients.to_json } 
-            format.xml { render :xml =>  @recette.ingredients.as_json.to_xml }
-        end   
-    end
+    
 
 end

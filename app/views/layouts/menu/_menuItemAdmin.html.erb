@@ -1,0 +1,16 @@
+<!-- Jean-Yves Deoncourt 9977949 29 novembre 2020 -->
+
+<%= link_to 'HOME', "/", method: :get, class:"w3-bar-item w3-button"  %>
+<%= link_to "Admin Panel", "/admin/", class:"w3-bar-item w3-button"%>
+<% if user_signed_in? %>
+<p><%= current_user.email %>
+
+
+<%= link_to 'Liste des recette par User', "/admin/userRecettes", method: :get, class:"w3-bar-item w3-button"%>
+<%= link_to 'Liste des recette complete', "/admin/recettes", method: :get, class:"w3-bar-item w3-button"%>
+<%= link_to 'logout', destroy_user_session_path, method: :delete, class:"w3-bar-item w3-button"%>
+
+
+<%else%>
+ <%= link_to 'login', new_user_session_path, method: :get, class:"w3-bar-item w3-button" %>
+<% end %>

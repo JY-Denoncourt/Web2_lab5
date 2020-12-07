@@ -1,0 +1,12 @@
+<% #Jean-Yves Denoncourt 9977949 29-novembre-2020 %>
+
+<h1> <%= @recettes.titre %>  <br/> </h1>
+
+<h2>
+    Ingredient : 
+    <br/>
+    <%= image_tag "popsicle.jpg", style: "width:20%" %>
+    <%  @recettes.ingredients.each do |ingredient| %>
+        <h2> ==>  <%= ingredient.nom %> <br/> </h2>
+    <% end %>
+</h2>

@@ -1,0 +1,24 @@
+<% #Jean-Yves Denoncourt 9977949   29-novembre-2020 %>
+
+<h1>Creer une recette</h1>
+
+<%= form_for(@recette, url: "/admin/addRecette", method: "post") do |f|%>
+    <%= f.label :titre, "Nom de la recette :" %> 
+    <%= @recette.errors[:titre].join('<br />') %>
+    <%= f.text_field :titre %><br/>
+
+    <%#= f.label :ingredient1, "1er Ingredient :" %>
+    <%#= f.text_field :ingredient1 %><br/>
+
+    <%#= f.label :ingredient2, "2ieme Ingredient :  " %> 
+    <%#= f.text_field :ingredient2 %><br/>
+
+    <%#= f.label :ingredient3, "3ieme Ingredient :" %>
+    <%#= f.text_field :ingredient3 %><br/>
+
+    <%= f.label :etapes, "Description des etapes" %> <br/>
+    <%= @recette.errors[:etapes].join('<br />') %>
+    <%= f.text_area :etapes, size: "30x20" %><br/>
+    
+    <%= submit_tag("Ajouter") %>
+<%end%>
